@@ -19,6 +19,19 @@ import time
 
 import requests
 
+# 有些人的机器上跑着加速器 / 安全软件（Steam++、Watt Toolkit、部分杀软），
+# 它们会给所有 HTTPS 做中间人，根证书装在 Windows 证书存储里。
+# Python 默认只信 certifi 那套 CA 包，不认系统证书，于是直接报
+# SSLCertVerificationError —— 表现就是「Token 明明是对的，却连不上 GitHub」。
+# truststore 把 ssl 切到系统证书存储，一行解决；没装也不影响，退回默认行为。
+try:
+    import truststore
+
+    truststore.inject_into_ssl()
+    SSL_BACKEND = "system"
+except Exception:  # noqa: BLE001
+    SSL_BACKEND = "certifi"
+
 API = "https://api.github.com"
 UA = "tudou-cloud-deploy"
 TIMEOUT = 30

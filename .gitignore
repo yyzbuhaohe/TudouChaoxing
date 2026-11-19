@@ -172,3 +172,6 @@ trial*.ini
 
 # 配置工具记住的 GitHub 部署信息（含 Token，绝不进仓库）
 .cloud.json
+
+# 云端部署工具记住的账号/Token（本机文件，绝不进仓库）
+cloud_setup.json

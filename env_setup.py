@@ -47,6 +47,7 @@ MODULES = [
     ("openai", "openai", "大模型答题（DeepSeek 兼容接口）", True),
     ("httpx", "httpx", "大模型请求底层", True),
     ("nacl", "pynacl", "云端一键部署（加密 GitHub Secrets）", True),
+    ("truststore", "truststore", "认系统证书（装了加速器也能连 GitHub）", True),
     ("flask", "flask", "网页版界面（可选）", False),
     ("celery", "celery", "网页版异步队列（可选）", False),
 ]

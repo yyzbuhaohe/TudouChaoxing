@@ -17,6 +17,9 @@ openai<3
 httpx>=0.27,<1
 # GitHub Secrets 加密用（配置工具「⑥ 云端部署」页需要）。纯 wheel，装起来很快。
 pynacl
+# 让 Python 认 Windows 证书存储。装了加速器（Steam++/Watt Toolkit）或某些杀软时，
+# 不装这个会一直报 SSLCertVerificationError，看起来像「Token 失效」。
+truststore
 
 # 验证码识别库 ddddocr 已经移除：代码里没有任何地方 import 它，
 # 而且它锁定的 1.5.6 在 Python 3.12+ 上装不上，留着只会让新人卡在 pip 报错。
